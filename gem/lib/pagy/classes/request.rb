@@ -27,13 +27,13 @@ class Pagy
     end
 
     def resolve_limit
-      limit_key = @options[:limit_key] || DEFAULT[:limit_key]
       default   = @options[:limit] || DEFAULT[:limit]
       max_limit = @options[:client_max_limit]
       return default unless max_limit
 
-      limit = @params.dig(@options[:root_key], limit_key) || @params[limit_key]
-      limit ? [limit.to_i, max_limit].min : default
+      limit_key = @options[:limit_key] || DEFAULT[:limit_key]
+      limit     = (@params.dig(@options[:root_key], limit_key) || @params[limit_key]).to_s.to_i
+      limit.zero? ? default : [limit, max_limit].min
     end
 
     private
