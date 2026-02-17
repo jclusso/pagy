@@ -31,9 +31,9 @@ type NavJsSeries = readonly [widths: number[],
 type InputNavJsArgs = readonly [urlToken:  string,
                                 pageToken: string,
                                 KeynavArgs?]
-type LimitTagJsArgs = readonly [from:     number,
-                                urlToken: string,
-                                pageToken: string,
+type LimitTagJsArgs = readonly [from:       number,
+                                urlToken:   string,
+                                pageToken:  string,
                                 limitToken: string]
 type NavJsTokens = readonly [before:  string,
                              anchor:  string,
@@ -201,7 +201,7 @@ const Pagy = (() => {
 
   // Public interface
   return {
-    version: "43.2.9",
+    version: "43.2.10",
 
     // Scan for elements with a "data-pagy" attribute and call their init functions with the decoded args
     init(arg?:HTMLElement) {

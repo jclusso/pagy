@@ -16,7 +16,7 @@
 # URL
 #    http://127.0.0.1:8000
 
-VERSION = '43.2.9'
+VERSION = '43.2.10'
 
 if VERSION != Pagy::VERSION
   Warning.warn("\n>>> WARNING! '#{File.basename(__FILE__)}-#{VERSION}' running with 'pagy-#{Pagy::VERSION}'! <<< \n\n")
@@ -41,7 +41,7 @@ class PagyKeysetSequel < Sinatra::Base
 
   # Root route/action
   get '/' do
-    @order = { animal: :asc, name: :asc, birthdate: :desc, id: :asc }
+    @order = { animal: :asc, name: :asc, birthdate: :desc, id: :asc }.freeze
     @pagy, @pets = pagy(:keyset, Pet.order(:animal, :name, Sequel.desc(:birthdate), :id),
                         limit: 10, client_max_limit: 100)
     erb :main

@@ -1,7 +1,13 @@
-### Changes in 43.2.9
+### Changes in 43.2.10
 
 <!-- changes_start -->
-- Fix NoMethodError with tampered params (#872)
+- Add failing test and revert code that caused empty aria label
+- Avoid invalid limit param (similar to #862)
+- Add thread flag to /bin/pagy
+- Add uri gem dependency to the gemspec
+- Freeze the @order in key* apps
+- Replace require with require_relative in Pagy::CLI
+- Make Pagy.options thread-safe
 <!-- changes_end -->
 
 [CHANGELOG](https://ddnexus.github.io/pagy/changelog)

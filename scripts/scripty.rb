@@ -6,6 +6,11 @@ require 'pathname'
 module Scripty
   ROOT = Pathname.new(`git rev-parse --show-toplevel`.chomp)
 
+  if ENV['RM_INFO'] || ENV['RUBYLIB']&.include?('rubymine')
+    require 'io/console'
+    $stdin.echo = false if $stdin.tty?
+  end
+
   module_function
 
   # Ask for confirmation and do

@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'pagy'
-  s.version     = '43.2.9'
+  s.version     = '43.2.10'
   s.authors     = ['Domizio Demichelis']
   s.email       = ['dd.nexus@gmail.com']
   s.summary     = 'Pagy 🐸 The Leaping Gem!'
@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
                     'support'               => 'https://github.com/ddnexus/pagy/discussions/categories/q-a' }
   s.executables << 'pagy'
   s.add_dependency 'json'
+  s.add_dependency 'uri'
   s.add_dependency 'yaml'
   s.required_ruby_version = '>= 3.2'
 end

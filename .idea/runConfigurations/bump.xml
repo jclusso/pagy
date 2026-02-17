@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="bump" type="RubyRunConfigurationType" factoryName="Ruby">
+  <configuration default="false" name="bump" type="RubyRunConfigurationType" factoryName="Ruby" focusToolWindowBeforeRun="true">
     <module name="pagy" />
     <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="" />
     <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />

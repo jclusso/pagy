@@ -19,7 +19,7 @@
 # URL
 #    http://127.0.0.1:8000
 
-VERSION = '43.2.9'
+VERSION = '43.2.10'
 
 if VERSION != Pagy::VERSION
   Warning.warn("\n>>> WARNING! '#{File.basename(__FILE__)}-#{VERSION}' running with 'pagy-#{Pagy::VERSION}'! <<< \n\n")
@@ -86,7 +86,7 @@ class PagyDemo < Sinatra::Base
   end
 
   PAGY_LIKE_HEAD =
-    %(#{Pagy.dev_tools if ENV['CY_TEST'] != 'true'}
+    %(#{Pagy.dev_tools if ENV['E2E_TEST'] != 'true'}
       <style>
         /* black/white backdrop color based on --B */
         .pagy { background-color: hsl(0 0 calc(100 * var(--B))) !important; }

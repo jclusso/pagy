@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'pathname'
+require 'concurrent'
+
 require_relative 'pagy/classes/exceptions'
 require_relative 'pagy/modules/abilities/linkable'
 require_relative 'pagy/modules/abilities/configurable'
@@ -8,7 +10,7 @@ require_relative 'pagy/toolbox/helpers/loader'
 
 # Top superclass: it defines only what's common to all the subclasses
 class Pagy
-  VERSION     = '43.2.9'
+  VERSION     = '43.2.10'
   ROOT        = Pathname.new(__dir__).parent.freeze
   DEFAULT     = { limit: 20, limit_key: 'limit', page_key: 'page' }.freeze
   PAGE_TOKEN  = EscapedValue.new('P ')
@@ -28,7 +30,9 @@ class Pagy
   autoload :Searchkick,         path.join('classes/offset/search')
   autoload :Keyset,             path.join('classes/keyset/keyset')
 
-  def self.options = @options ||= {}
+  # Define a thread-safe hash at the class level
+  OPTIONS = Concurrent::Hash.new
+  def self.options = OPTIONS
 
   extend Configurable
   include Linkable
