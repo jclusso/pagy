@@ -16,7 +16,7 @@ expect the old/deprecated functionality to be supported ONLY during the current 
 
 ## Recommended Version Constraint
 
-Given a version number `MAJOR.MINOR.PATCH` (e.g. `43.2.9`):
+Given a version number `MAJOR.MINOR.PATCH` (e.g. `43.2.10`):
 
 The `gem 'pagy', '~> 43.0'` Gemfile entry (without the PATCH number) ensures that the `bundle update` command will update pagy to
 the most recent version WITHOUT BREAKING CHANGES.
@@ -44,6 +44,16 @@ If you upgrade from version `< 9.0.0` see the following:
 > from scratch might be faster.
 
 <hr>
+
+## Version 43.2.10
+
+- Add failing test and revert code that caused empty aria label
+- Avoid invalid limit param (similar to #862)
+- Add thread flag to /bin/pagy
+- Add uri gem dependency to the gemspec
+- Freeze the @order in key* apps
+- Replace require with require_relative in Pagy::CLI
+- Make Pagy.options thread-safe
 
 ## Version 43.2.9
 
